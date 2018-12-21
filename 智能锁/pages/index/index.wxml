@@ -1,0 +1,24 @@
+<!--index.wxml-->
+
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> 
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+ 
+  <button bindtap="turntoshexiangtou">打开摄像头</button>
+
+  <view class="usermotto">门锁状态：{{zhuangtai}}</view>
+  <view class='lock'>
+    <image wx:if='{{unlock}}' bindtap='guansuo' src='../unlock.png' mode='widthFix'></image>
+    <image wx:else bindtap='kaisuo' src='../locked.png' mode='widthFix'></image>
+    <view class='tip'>
+      <text>{{action_tip}}</text>
+    </view>
+  </view>

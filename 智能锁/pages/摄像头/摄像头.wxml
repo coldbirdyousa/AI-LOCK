@@ -1,0 +1,6 @@
+<!--pages/lock1/lock1.wxml-->
+
+<button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">
+  打开APP
+</button>
+<button bindtap="turnback">返回主界面</button>
