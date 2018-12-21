@@ -1,0 +1,37 @@
+
+<view class='page1'>
+  <view class='sb-btit'>登录</view>
+  <view class='sb-box'>
+    <view class='sb-item' bindtap='ljly'>北邮C510</view>
+  </view>
+</view>
+
+<!--  输入密码  -->
+<view class='page2' wx:if="{{showInputKeyboard}}">
+
+  <view class='shade-box1'>
+    <view class='enter-hint tc'>输入密码</view>
+    <view class='pwd-box tc'>
+      <view class='pwd-item' wx:for="{{pwdArr}}" wx:key="p"></view>
+    </view>
+    <view class='numeric-keyboard'>
+      <view class='numeric-item center-flex' 
+        hover-start-time="0" 
+        hover-stay-time="200" 
+        hover-class="bg_blue" 
+        wx:for="{{numericKeyboard}}" 
+        wx:key="n"
+        bindtap='savePwd'
+        data-num="{{item.number}}"
+      >{{item.number}}</view>
+    </view>
+
+    <!--  取消   删除  -->
+    <view class='handle-box'>
+      <view class='handle' wx:if="{{pwdArr.length == 0}}" bindtap='cancel'>取消</view>
+      <view class='handle' wx:else bindtap='delLast'>删除</view>
+    </view>
+
+  </view>
+
+</view>
